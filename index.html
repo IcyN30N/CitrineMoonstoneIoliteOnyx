@@ -19,13 +19,16 @@
           <section>
             <h2>{{ subtitle }}</h2>
             <h3>{{ p_subtitle }}</h3>
-            <select>
-              <option v-for="pronoun in pronouns"> {{ pronoun }} </option>
+            <select v-model='chosen_p'>
+              <option v-for="pronoun in pronouns" v-bind:value="pronoun"> {{ pronoun }} </option>
             </select>
             <h3>{{ a_subtitle }}</h3>
-            <select>
-              <option v-for="accord in accords"> {{ accord }} </option>
+            <select v-model='chosen_a'>
+              <option v-for="accord in accords" v-bind:value="accord"> {{ accord }} </option>
             </select>
+            <button class="btn btn-primary" @click="makeTheCombo()">Afficher</button>
+            <p>Pronom choisi : {{chosen_p}}, accord choisi : {{ chosen_a }}</p>
+            <p> Mon choix : {{ chosen_combo }}</p>
           </section>
         </div>
       </div>

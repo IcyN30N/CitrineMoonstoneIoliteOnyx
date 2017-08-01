@@ -26,14 +26,28 @@ var app = new Vue({
       'al'
     ],
     accords: [
-      "acc",
-      "acc",
-      "acc",
-      "acc",
-      "acc",
-      "acc",
-      "acc",
-      "acc"
-    ]
+      "e",
+      "é",
+      "ae",
+      "s",
+      "xe",
+      "ø",
+      "m"
+    ],
+    chosen_p: '',
+    chosen_a: '',
+    chosen_combo: ''
+  },
+  methods: {
+    // utiliser chosen_combo (qui contient pronom+accord pour l'afficher à un endroit prévu pour ça)
+    // putSelectedText: function(chosen_combo)
+
+    // assemble chosen_p & chosen_a
+    makeTheCombo: function() {
+      accord = this.chosen_a
+      pronoun = this.chosen_p.concat(" ")
+      new_combo = pronoun + accord
+      return this.chosen_combo = new_combo
+    }
   }
 })
