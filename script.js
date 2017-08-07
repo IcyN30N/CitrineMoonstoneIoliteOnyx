@@ -12,7 +12,7 @@ var app = new Vue({
       });
       FB.AppEvents.logPageView();
 
-      window.FB.getLoginStatus(function(response) {
+      FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
         console.log(response);
       });
