@@ -1,5 +1,32 @@
 var app = new Vue({
   el: '#app',
+  created: function() {
+    console.log('created main !');
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '1935977786623831',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.10'
+      });
+      FB.AppEvents.logPageView();
+
+      window.FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+        console.log(response);
+      });
+
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  },
   data: {
     title: 'This is a first importance title like - Iolite are not well known',
     message: 'This is a small text about the use of this web app like - iolites have a beautiful color',
