@@ -13,8 +13,13 @@ var app = new Vue({
       FB.AppEvents.logPageView();
 
       FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-        console.log(response);
+        if (response.status === 'connected') {
+          console.log("this user is connected !");
+          console.log(response);
+        } else if(response.status === 'not_authorized') {
+          console.log("this user isn't connected !");
+          console.log(response);
+        }
       });
 
     };
