@@ -16,12 +16,12 @@ var app = new Vue({
         if (response.status === 'connected') {
           console.log("this user is connected !");
           console.log(response);
-          this.have_to_login = false;
+          app.have_to_login = false;
           // call a function that'll post to FB on a button click
         } else if(response.status === 'not_authorized') {
           console.log("this user isn't connected !");
           console.log(response);
-          this.have_to_login = true;
+          app.have_to_login = true;
           // call a function that will call FB.login so the user can login to facebook and or to give the permissions to the app
 
           /*
