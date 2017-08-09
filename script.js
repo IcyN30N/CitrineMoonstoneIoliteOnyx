@@ -16,9 +16,19 @@ var app = new Vue({
         if (response.status === 'connected') {
           console.log("this user is connected !");
           console.log(response);
+          this.have_to_login = false;
+          // call a function that'll post to FB on a button click
         } else if(response.status === 'not_authorized') {
           console.log("this user isn't connected !");
           console.log(response);
+          this.have_to_login = true;
+          // call a function that will call FB.login so the user can login to facebook and or to give the permissions to the app
+
+          /*
+          // to put in a separate function :
+          FB.login(function(response) {
+            // launch the function that'll post to FB on a button click
+          }, {scope: 'publish_actions'}); */
         }
       });
 
@@ -38,6 +48,7 @@ var app = new Vue({
     subtitle: 'This is a secondary title like - iolite mines',
     p_subtitle: 'This is a ternary title like - iolite identification',
     a_subtitle: 'This is another ternary title like - iolite chemical composition',
+    have_to_login: '',
     pronouns: [
       'iel',
       'ael',
@@ -80,6 +91,9 @@ var app = new Vue({
       pronoun = this.chosen_p.concat(" ")
       new_combo = pronoun + accord
       return this.chosen_combo = new_combo
-    }
+    } /*,
+    logMeInWithPermissions: function() {
+
+    } */
   }
 })
