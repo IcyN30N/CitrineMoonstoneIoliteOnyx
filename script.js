@@ -94,7 +94,7 @@ var app = new Vue({
       FB.api(
         '/me/feed',
         'POST',
-        {"message":this.chosen_combo},
+        {"message":app.chosen_combo},
         function(response) {
           // Insert your code here
         }
