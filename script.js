@@ -17,18 +17,13 @@ var app = new Vue({
           console.log("this user is connected !");
           console.log(response);
           app.have_to_login = false;
-          // call a function that'll post to FB on a button click
+          app.publishToFB();
         } else if(response.status === 'not_authorized') {
           console.log("this user isn't connected !");
           console.log(response);
           app.have_to_login = true;
-          // call a function that will call FB.login so the user can login to facebook and or to give the permissions to the app
-
-          /*
-          // to put in a separate function :
-          FB.login(function(response) {
-            // launch the function that'll post to FB on a button click
-          }, {scope: 'publish_actions'}); */
+          app.logMeInWithPermissions();
+          app.publishToFB();
         }
       });
 
@@ -82,18 +77,28 @@ var app = new Vue({
     chosen_combo: ''
   },
   methods: {
-    // utiliser chosen_combo (qui contient pronom+accord pour l'afficher à un endroit prévu pour ça)
-    // putSelectedText: function(chosen_combo)
-
     // assemble chosen_p & chosen_a
     makeTheCombo: function() {
       accord = this.chosen_a
       pronoun = this.chosen_p.concat(" ")
       new_combo = pronoun + accord
       return this.chosen_combo = new_combo
-    } /*,
+    },
+    // ouvre une fenêtre de login FB pour accorder les permissions nécessaires à l'application
     logMeInWithPermissions: function() {
-
-    } */
+      FB.login(function(response) {
+      }, {scope: 'publish_actions'});
+    },
+    // publie chosen_combo sur FB
+    publishToFB: function() {
+      FB.api(
+        '/me/feed',
+        'POST',
+        {"message":this.chosen_combo},
+        function(response) {
+          // Insert your code here
+        }
+      );
+    }
   }
 })
