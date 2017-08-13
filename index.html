@@ -31,8 +31,8 @@
             <p> Mon choix : {{ chosen_combo }}</p>
             <p v-if="have_to_login === true">L'utilisateurice n'est pas connecté-e et / ou n'a pas accordé les permissions nécessaires à l'application !</p>
             <p v-else>L'utilisateurice est connecté-e et a accordé les permissions nécessaires à l'application !</p>
-            <button v-show="have_to_login === true" class="btn btn-primary">faire LE TRUC (login)</button>
-            <!-- <button class="btn btn-primary">faire LE TRUC INACTIF</button> -->
+            <button class="btn btn-primary" v-show="have_to_login === true" @click="logMeInWithPermissions()">faire LE TRUC (login)</button>
+            <button class="btn btn-info" v-show="have_to_login === false" @click="publishToFB()">faire LE TRUC (publish)</button>
           </section>
         </div>
       </div>

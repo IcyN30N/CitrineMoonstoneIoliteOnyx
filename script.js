@@ -17,13 +17,10 @@ var app = new Vue({
           console.log("this user is connected !");
           console.log(response);
           app.have_to_login = false;
-          app.publishToFB();
         } else if(response.status === 'not_authorized') {
           console.log("this user isn't connected !");
           console.log(response);
           app.have_to_login = true;
-          app.logMeInWithPermissions();
-          app.publishToFB();
         }
       });
 
@@ -94,7 +91,7 @@ var app = new Vue({
       FB.api(
         '/me/feed',
         'POST',
-        {"message":app.chosen_combo},
+        {"message":app.chosen_p + " " + app.chosen_a},
         function(response) {
           // Insert your code here
         }
