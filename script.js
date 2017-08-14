@@ -85,6 +85,7 @@ var app = new Vue({
     logMeInWithPermissions: function() {
       FB.login(function(response) {
       }, {scope: 'publish_actions'});
+      app.have_to_login = false;
     },
     // publie chosen_combo sur FB
     publishToFB: function() {
