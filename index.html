@@ -3,10 +3,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>CitrineMoonstoneIoliteOnyx</title>
+        <!-- EXTERNAL THINGS -->
         <!-- Latest BOOTSTRAP compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- latest VueJS (because this is a CDN) -->
         <script src="https://unpkg.com/vue"></script>
+        <!-- MY THINGS -->
+        <link rel="stylesheet" href="style.css" type="text/css">
     </head>
 
     <body>
@@ -26,13 +29,11 @@
             <select v-model='chosen_a'>
               <option v-for="accord in accords" v-bind:value="accord"> {{ accord }} </option>
             </select>
-            <button class="btn btn-primary" @click="makeTheCombo()">Afficher</button>
             <p>Pronom choisi : {{chosen_p}}, accord choisi : {{ chosen_a }}</p>
-            <p> Mon choix : {{ chosen_combo }}</p>
             <p v-if="have_to_login === true">L'utilisateurice n'est pas connecté-e et / ou n'a pas accordé les permissions nécessaires à l'application !</p>
             <p v-else>L'utilisateurice est connecté-e et a accordé les permissions nécessaires à l'application !</p>
-            <button class="btn btn-primary" v-show="have_to_login === true" @click="logMeInWithPermissions()">faire LE TRUC (login)</button>
-            <button class="btn btn-info" v-show="have_to_login === false" @click="publishToFB()">faire LE TRUC (publish)</button>
+            <button class=" btn fb-login text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">Continue with Facebook</button>
+            <button class="btn btn-info" v-show="have_to_login === false" @click="publishToFB()">Let people know</button>
           </section>
         </div>
       </div>

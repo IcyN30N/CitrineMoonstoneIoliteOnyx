@@ -1,0 +1,21 @@
+// variables //
+$facebook-blue: #3b5998;
+$dark-text: #2c3e50;
+
+
+
+
+// general styling //
+body {
+  color:$dark-text;
+}
+
+
+
+
+// classes //
+.fb-login {
+  background-color: $facebook-blue;
+  font-family: "helvetica neue",helvetica,arial,"lucida grande",sans-serif;
+  color:white;
+}

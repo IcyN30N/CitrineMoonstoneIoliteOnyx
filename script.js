@@ -35,11 +35,11 @@ var app = new Vue({
     }(document, 'script', 'facebook-jssdk'));
   },
   data: {
-    title: 'This is a first importance title like - Iolite are not well known',
-    message: 'This is a small text about the use of this web app like - iolites have a beautiful color',
-    subtitle: 'This is a secondary title like - iolite mines',
-    p_subtitle: 'This is a ternary title like - iolite identification',
-    a_subtitle: 'This is another ternary title like - iolite chemical composition',
+    title: 'Welcome to PronounsAndAccordsMatter',
+    message: 'This is a small web application using the Facebook API so you can share a pronoun and an accord with your facebook friends.',
+    subtitle: 'PronounsAndAccordsMatter',
+    p_subtitle: 'Pick your preferred pronoun',
+    a_subtitle: 'Pick your preferred accord',
     have_to_login: '',
     pronouns: [
       'iel',
@@ -70,24 +70,16 @@ var app = new Vue({
       "m"
     ],
     chosen_p: '',
-    chosen_a: '',
-    chosen_combo: ''
+    chosen_a: ''
   },
   methods: {
-    // assemble chosen_p & chosen_a
-    makeTheCombo: function() {
-      accord = this.chosen_a
-      pronoun = this.chosen_p.concat(" ")
-      new_combo = pronoun + accord
-      return this.chosen_combo = new_combo
-    },
     // ouvre une fenêtre de login FB pour accorder les permissions nécessaires à l'application
     logMeInWithPermissions: function() {
       FB.login(function(response) {
       }, {scope: 'publish_actions'});
       app.have_to_login = false;
     },
-    // publie chosen_combo sur FB
+    // publie le pronom et accord choisi sur FB
     publishToFB: function() {
       FB.api(
         '/me/feed',
