@@ -29,11 +29,11 @@
             <select v-model='chosen_a'>
               <option v-for="accord in accords" v-bind:value="accord"> {{ accord }} </option>
             </select>
-            <p>Pronom choisi : {{chosen_p}}, accord choisi : {{ chosen_a }}</p>
+            <p id="choices_previewer">{{chosen_p}} - {{ chosen_a }}</p>
             <p v-if="have_to_login === true">L'utilisateurice n'est pas connecté-e et / ou n'a pas accordé les permissions nécessaires à l'application !</p>
             <p v-else>L'utilisateurice est connecté-e et a accordé les permissions nécessaires à l'application !</p>
-            <button class=" btn fb-login text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">Continue with Facebook</button>
-            <button class="btn btn-info" v-show="have_to_login === false" @click="publishToFB()">Let people know</button>
+            <button class="fb-login-button text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">Continue with Facebook</button>
+            <button class="generic-button" v-show="have_to_login === false" @click="publishToFB()">Let people know</button>
           </section>
         </div>
       </div>
