@@ -13,15 +13,16 @@ body {
 
 // ids //
 
-#choices_previewer {
-  font-size:1.7em;
-  font-weight: bold;
-  color:$accent-blue;
-}
 
 // END (ids) //
 
 // classes //
+
+.accented-text {
+  font-size:1.7em;
+  font-weight: bold;
+  color:$accent-blue;
+}
 
 // buttons //
 .generic-button {

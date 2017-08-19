@@ -35,9 +35,9 @@ var app = new Vue({
     }(document, 'script', 'facebook-jssdk'));
   },
   data: {
-    title: 'Welcome to PronounsAndAccordsMatter',
-    message: 'This is a small web application using the Facebook API so you can share a pronoun and an accord with your facebook friends.',
-    subtitle: 'PronounsAndAccordsMatter',
+    title: 'PronounsAndAccordsMatter',
+    message: 'This is a minimalist web application using the Facebook API so you can share a pronoun and an accord with your facebook friends.',
+    call_to_action_first: 'Choose a pronom/ an accord to start !',
     p_subtitle: 'Pick your preferred pronoun',
     a_subtitle: 'Pick your preferred accord',
     have_to_login: '',

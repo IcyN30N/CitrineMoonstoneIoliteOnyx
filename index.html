@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -20,20 +21,20 @@
             <p>{{ message }}</p>
           </section>
           <section>
-            <h2>{{ subtitle }}</h2>
-            <h3>{{ p_subtitle }}</h3>
+            <p class="accented-text" v-show="chosen_p == '' && chosen_a == '' " >{{ call_to_action_first }}</p>
+            <h2>{{ p_subtitle }}</h2>
             <select v-model='chosen_p'>
               <option v-for="pronoun in pronouns" v-bind:value="pronoun"> {{ pronoun }} </option>
             </select>
-            <h3>{{ a_subtitle }}</h3>
+            <h2>{{ a_subtitle }}</h2>
             <select v-model='chosen_a'>
               <option v-for="accord in accords" v-bind:value="accord"> {{ accord }} </option>
             </select>
-            <p id="choices_previewer">{{chosen_p}} - {{ chosen_a }}</p>
+            <p class="accented-text" v-show="chosen_p != '' || chosen_a != ''" >{{chosen_p}} - {{ chosen_a }}</p>
             <p v-if="have_to_login === true">L'utilisateurice n'est pas connecté-e et / ou n'a pas accordé les permissions nécessaires à l'application !</p>
             <p v-else>L'utilisateurice est connecté-e et a accordé les permissions nécessaires à l'application !</p>
             <button class="fb-login-button text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">Continue with Facebook</button>
-            <button class="generic-button" v-show="have_to_login === false" @click="publishToFB()">Let people know</button>
+            <button class="generic-button" v-show="have_to_login === false && chosen_p != '' && chosen_a != '' " @click="publishToFB()">Let people know</button>
           </section>
         </div>
       </div>
