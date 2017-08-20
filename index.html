@@ -32,7 +32,7 @@
             </select>
             <p class="accented-text" v-show="chosen_p != '' || chosen_a != ''" >{{ chosen_p }} - {{ chosen_a }}</p>
             <p class="accented-text" v-show="have_to_login === true">{{ call_to_action_connect }}</p>
-            <button class="fb-login-button text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">use Facebook</button>
+            <button class="fb-login-button text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">Login</button>
             <p class="accented-text" v-show="have_to_login === false && chosen_p != '' && chosen_a != '' ">{{ call_to_action_share }}</p>
             <button class="generic-button" v-show="have_to_login === false && chosen_p != '' && chosen_a != '' " @click="publishToFB()">Let people know</button>
           </section>
