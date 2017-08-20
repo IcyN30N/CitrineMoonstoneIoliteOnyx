@@ -39,13 +39,13 @@ body {
   transition: 1.2s;
 }
 
-.fb-login-button {
+.soc-net-login-button {
   @extend .generic-button;
   background-color: $facebook-blue;
   font-family: "helvetica neue",helvetica,arial,"lucida grande",sans-serif;
 }
 
-.fb-login-button:hover {
+.soc-net-login-button:hover {
   background-color: lighten($facebook-blue,10%);
   transition: 1.2s;
 }

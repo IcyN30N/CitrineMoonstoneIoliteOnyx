@@ -6,7 +6,7 @@ body {
   font-weight: bold;
   color: #2994b2; }
 
-.generic-button, .fb-login-button {
+.generic-button, .soc-net-login-button {
   color: #fffbe0;
   padding: 1% 2% 1% 2%;
   border-radius: 30px;
@@ -14,15 +14,15 @@ body {
   background-color: #2994b2;
   transition: 1.2s; }
 
-.generic-button:hover, .fb-login-button:hover {
+.generic-button:hover, .soc-net-login-button:hover {
   background-color: #3cb1d2;
   transition: 1.2s; }
 
-.fb-login-button {
+.soc-net-login-button {
   background-color: #3b5998;
   font-family: "helvetica neue",helvetica,arial,"lucida grande",sans-serif; }
 
-.fb-login-button:hover {
+.soc-net-login-button:hover {
   background-color: #4c70ba;
   transition: 1.2s; }
 
