@@ -14,12 +14,8 @@ var app = new Vue({
 
       FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-          console.log("this user is connected !");
-          console.log(response);
           app.have_to_login = false;
         } else if(response.status === 'not_authorized') {
-          console.log("this user isn't connected !");
-          console.log(response);
           app.have_to_login = true;
         }
       });
@@ -37,7 +33,9 @@ var app = new Vue({
   data: {
     title: 'PronounsAndAccordsMatter',
     message: 'This is a minimalist web application using the Facebook API so you can share a pronoun and an accord with your facebook friends.',
-    call_to_action_first: 'Choose a pronom/ an accord to start !',
+    call_to_action_choice: 'Choose a pronom/ an accord to start !',
+    call_to_action_connect: 'Click on the button below to connect to Facebook and use the app',
+    call_to_action_share: 'Just click the button below and share your pronoun(s) and accord(s) with the people you know ;) !',
     p_subtitle: 'Pick your preferred pronoun',
     a_subtitle: 'Pick your preferred accord',
     have_to_login: '',
