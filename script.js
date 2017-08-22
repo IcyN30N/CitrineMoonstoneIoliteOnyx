@@ -68,7 +68,8 @@ var app = new Vue({
       "m"
     ],
     chosen_p: '',
-    chosen_a: ''
+    chosen_a: '',
+    soc_net_feedback: ''
   },
   methods: {
     // ouvre une fenêtre de login FB pour accorder les permissions nécessaires à l'application
@@ -79,14 +80,24 @@ var app = new Vue({
     },
     // publie le pronom et accord choisi sur FB
     publishToFB: function() {
-      FB.api(
-        '/me/feed',
-        'POST',
-        {"message":app.chosen_p + " " + app.chosen_a},
-        function(response) {
-          // Insert your code here
-        }
-      );
+      if (app.pronouns.includes(app.chosen_p) && app.accords.includes(app.chosen_a)) {
+        FB.api(
+          '/me/feed',
+          'POST',
+          {"message":app.chosen_p + " " + app.chosen_a},
+          function(response) {
+            if (response.id != undefined && response.id != '') {
+              console.log(response.id);
+              app.soc_net_feedback = "Status has been published successfully :) !";
+            } else {
+              app.soc_net_feedback = "A problem happened and the status wasn't published :( !";
+            }
+          }
+        );
+      }
+      else {
+        location.reload(true);
+      }
     }
   }
 })

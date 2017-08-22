@@ -24,6 +24,11 @@ body {
   color:$accent-blue;
 }
 
+.accented-text-variant {
+  @extend .accented-text;
+  color:darken($accent-yellow, 5%);
+}
+
 // buttons //
 .generic-button {
   color:$accent-cream;
