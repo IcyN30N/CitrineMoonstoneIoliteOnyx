@@ -31,6 +31,7 @@ var app = new Vue({
     }(document, 'script', 'facebook-jssdk'));
   },
   data: {
+    chosen_lang: "EN",
     title: 'PronounsAndAccordsMatter',
     message: 'This is a minimalist web application using the Facebook API so you can share a pronoun and an accord with your facebook friends.',
     call_to_action_choice: 'Choose a pronom/ an accord to start !',
@@ -40,6 +41,38 @@ var app = new Vue({
     a_subtitle: 'Pick your preferred accord',
     have_to_login: '',
     pronouns: [
+      'they',
+      'ze',
+      'he',
+      'xe',
+      'fae',
+      'zie',
+      'she',
+      'ae',
+      'per',
+      'ey'
+    ],
+    accords: [
+      'e',
+      'é',
+      'ae',
+      's',
+      'xe',
+      'ø',
+      'm'
+    ],
+    chosen_p: '',
+    chosen_a: '',
+    soc_net_feedback: '',
+
+    // FR lang part //
+    message_fr: "Application web minimaliste qui utilise l'API Facebook pour que vous partagiez votre pronom (et l'accord qui va avec) avec vos ami-es Facebook.",
+    call_to_action_choice_fr:'Sélectionne un pronom/accord pour commencer !',
+    call_to_action_connect_fr: "Appuie sur le bouton plus bas pour te connecter à Facebook et utiliser l'app",
+    call_to_action_share_fr: "Un petit clic sur le bouton en contrebas pour partager ton pronom et ton accord avec tes connaissances ;) !",
+    p_subtitle_fr: 'Choisis un pronom',
+    a_subtitle_fr: 'Choisis un accord',
+    pronouns_fr: [
       'iel',
       'ael',
       'elle',
@@ -49,27 +82,10 @@ var app = new Vue({
       'ol',
       'ul',
       'il',
-      'they',
-      'ze',
-      'he',
-      'she',
-      'xe',
       'ae',
       'aelle',
       'al'
-    ],
-    accords: [
-      "e",
-      "é",
-      "ae",
-      "s",
-      "xe",
-      "ø",
-      "m"
-    ],
-    chosen_p: '',
-    chosen_a: '',
-    soc_net_feedback: ''
+    ]
   },
   methods: {
     // ouvre une fenêtre de login FB pour accorder les permissions nécessaires à l'application
@@ -84,13 +100,13 @@ var app = new Vue({
         FB.api(
           '/me/feed',
           'POST',
-          {"message":app.chosen_p + " " + app.chosen_a},
+          {"message": app.chosen_p + " " + app.chosen_a},
           function(response) {
             if (response.id != undefined && response.id != '') {
               console.log(response.id);
-              app.soc_net_feedback = "Status has been published successfully :) !";
+              app.soc_net_feedback = app.chosen_lang === 'EN' ? "Status has been published successfully :) !" : "Le statut a bien été posté :) !";
             } else {
-              app.soc_net_feedback = "A problem happened and the status wasn't published :( !";
+              app.soc_net_feedback = app.chosen_lang === 'EN' ? "A problem happened and the status wasn't published :( !" : "Il y a eu une erreur et le statut n'a pu être posté :( !";
             }
           }
         );

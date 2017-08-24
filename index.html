@@ -18,25 +18,41 @@
         <div class="container text-center">
           <section>
             <h1>{{ title }}</h1>
-            <p>{{ message }}</p>
+            <!-- As behind, to display english & french lang, elements were duplicated, first the EN, then, the FR -->
+            <p v-show="chosen_lang === 'EN' ">{{ message }}</p>
+            <p v-show="chosen_lang === 'FR' ">{{ message_fr }}</p>
           </section>
           <section>
-            <p class="accented-text" v-show="chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice }}</p>
-            <h2>{{ p_subtitle }}</h2>
-            <select v-model='chosen_p'>
+            <p class="accented-text" v-show="chosen_lang === 'EN' && chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice }}</p>
+            <p class="accented-text" v-show="chosen_lang === 'FR' && chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice_fr }}</p>
+            <h2 v-show="chosen_lang === 'EN' ">{{ p_subtitle }}</h2>
+            <h2 v-show="chosen_lang === 'FR' ">{{ p_subtitle_fr }}</h2>
+            <select v-model='chosen_p' v-show="chosen_lang === 'EN'">
               <option v-for="pronoun in pronouns" v-bind:value="pronoun"> {{ pronoun }} </option>
             </select>
-            <h2>{{ a_subtitle }}</h2>
+            <select v-model='chosen_p' v-show="chosen_lang === 'FR'">
+              <option v-for="pronoun in pronouns_fr" v-bind:value="pronoun"> {{ pronoun }} </option>
+            </select>
+            <h2 v-show="chosen_lang === 'EN' ">{{ a_subtitle }}</h2>
+            <h2 v-show="chosen_lang === 'FR' ">{{ a_subtitle_fr }}</h2>
             <select v-model='chosen_a'>
               <option v-for="accord in accords" v-bind:value="accord"> {{ accord }} </option>
             </select>
             <p class="accented-text" v-show="chosen_p != '' || chosen_a != ''" >{{ chosen_p }} - {{ chosen_a }}</p>
-            <p class="accented-text" v-show="have_to_login === true">{{ call_to_action_connect }}</p>
-            <button class="soc-net-login-button text-center" v-show="have_to_login === true" @click="logMeInWithPermissions()">Give us what we need</button>
-            <p class="accented-text" v-show="have_to_login === false && chosen_p != '' && chosen_a != '' ">{{ call_to_action_share }}</p>
+            <p class="accented-text" v-show="chosen_lang === 'EN' && have_to_login === true">{{ call_to_action_connect }}</p>
+            <p class="accented-text" v-show="chosen_lang === 'FR' && have_to_login === true">{{ call_to_action_connect_fr }}</p>
+            <button class="soc-net-login-button text-center" v-show="chosen_lang === 'EN' && have_to_login === true" @click="logMeInWithPermissions()">Give us what we need</button>
+            <button class="soc-net-login-button text-center" v-show="chosen_lang === 'FR' && have_to_login === true" @click="logMeInWithPermissions()">Juste un clic pour utiliser l'app</button>
+            <p class="accented-text" v-show="chosen_lang === 'EN' && have_to_login === false && chosen_p != '' && chosen_a != '' ">{{ call_to_action_share }}</p>
+            <p class="accented-text" v-show="chosen_lang === 'FR' && have_to_login === false && chosen_p != '' && chosen_a != '' ">{{ call_to_action_share_fr }}</p>
             <p class="accented-text-variant" v-show="soc_net_feedback != '' ">{{ soc_net_feedback }}</p>
-            <button class="generic-button" v-show="have_to_login === false && chosen_p != '' && chosen_a != '' " @click="publishToFB()">Let people know</button>
+            <button class="generic-button" v-show="chosen_lang === 'EN' && have_to_login === false && chosen_p != '' && chosen_a != '' " @click="publishToFB()">Let people know</button>
+            <button class="generic-button" v-show="chosen_lang === 'FR' && have_to_login === false && chosen_p != '' && chosen_a != '' " @click="publishToFB()">Partager avec les autres</button>
           </section>
+          <select v-model="chosen_lang">
+            <option value="EN">EN</option>
+            <option value="FR">FR</option>
+          </select>
         </div>
       </div>
       <script src="script.js"></script>
