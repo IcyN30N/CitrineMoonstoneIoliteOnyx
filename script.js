@@ -96,11 +96,14 @@ var app = new Vue({
     },
     // publie le pronom et accord choisi sur FB
     publishToFB: function() {
-      if (app.pronouns.includes(app.chosen_p) && app.accords.includes(app.chosen_a)) {
+      // this checks wether the user is trying to be malicious and misuse the app (non approved pronouns/accords for example) //
+      if (app.pronouns.includes(app.chosen_p) && app.accords.includes(app.chosen_a) || app.pronouns_fr.includes(app.chosen_p) && app.accords.includes(app.chosen_a)) {
+        // defining the variable that'll be given to message when calling the FB api to POST the status //
+        let fb_message = app.chosen_lang === 'EN' ? "My pronoun is " + app.chosen_p + " and my accord is " + app.chosen_a + ". They're important to me and being misgendered is hurtful so please, use them." : "J'utilise le pronom " + app.chosen_p + " et l'accord, " + app.chosen_a + ". C'est quelque chose d'important pour moi et vivre le mégenrage est très dur donc s'il vous plait, respectez les."
         FB.api(
           '/me/feed',
           'POST',
-          {"message": app.chosen_p + " " + app.chosen_a},
+          {"message": fb_message },
           function(response) {
             if (response.id != undefined && response.id != '') {
               console.log(response.id);
