@@ -22,7 +22,7 @@
             <p v-show="chosen_lang === 'EN' ">{{ message }}</p>
             <p v-show="chosen_lang === 'FR' ">{{ message_fr }}</p>
           </section>
-          <section>
+          <section id="magic-window">
             <p class="accented-text" v-show="chosen_lang === 'EN' && chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice }}</p>
             <p class="accented-text" v-show="chosen_lang === 'FR' && chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice_fr }}</p>
             <h2 v-show="chosen_lang === 'EN' ">{{ p_subtitle }}</h2>

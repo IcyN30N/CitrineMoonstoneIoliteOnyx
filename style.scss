@@ -1,27 +1,67 @@
 // variables //
 $facebook-blue: #3b5998;
-$accent-dark: #444f5a;
+$accent-dark: #2c3e50;
 $accent-blue: #2994b2;
 $accent-yellow: #fce38a;
-$accent-cream: #fffbe0;
+$accent-white: #ecf0f1;
 
 // general styling //
 body {
-  color:$accent-dark;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1&auto=format&fit');
+  color:$accent-white;
+
+  div {
+    div {
+      section:first-of-type {
+        margin-bottom: 3%;
+      }
+    }
+  }
+
+
+  select {
+    background-color:$accent-white;
+    color:$accent-dark;
+    option {
+      color:$accent-dark;
+      font-weight: bold;
+    }
+  }
+
+  section {
+
+    h2 {
+      padding-top: 1.2%;
+    }
+
+    select:last-of-type {
+      margin-bottom: 1.5%;
+    }
+  }
 }
 
 
 // ids //
 
+#magic-window {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 2%;
+  padding-bottom: 3%;
+
+}
 
 // END (ids) //
 
 // classes //
 
 .accented-text {
+  color:$accent-blue;
   font-size:1.7em;
   font-weight: bold;
-  color:$accent-blue;
+  padding-top: 1.5%;
+  padding-bottom: 0.5%;
 }
 
 .accented-text-variant {
@@ -31,12 +71,13 @@ body {
 
 // buttons //
 .generic-button {
-  color:$accent-cream;
+  color:$accent-white;
   padding: 1% 2% 1% 2%;
   border-radius: 30px;
   border: none;
   background-color: $accent-blue;
   transition: 1.2s;
+  margin-bottom: 2%;
 }
 
 .generic-button:hover {

@@ -1,21 +1,44 @@
 body {
-  color: #444f5a; }
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1&auto=format&fit");
+  color: #ecf0f1; }
+  body div div section:first-of-type {
+    margin-bottom: 3%; }
+  body select {
+    background-color: #ecf0f1;
+    color: #2c3e50; }
+    body select option {
+      color: #2c3e50;
+      font-weight: bold; }
+  body section h2 {
+    padding-top: 1.2%; }
+  body section select:last-of-type {
+    margin-bottom: 1.5%; }
+
+#magic-window {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 2%;
+  padding-bottom: 3%; }
 
 .accented-text, .accented-text-variant {
+  color: #2994b2;
   font-size: 1.7em;
   font-weight: bold;
-  color: #2994b2; }
+  padding-top: 1.5%;
+  padding-bottom: 0.5%; }
 
 .accented-text-variant {
   color: #fbdd71; }
 
 .generic-button, .soc-net-login-button {
-  color: #fffbe0;
+  color: #ecf0f1;
   padding: 1% 2% 1% 2%;
   border-radius: 30px;
   border: none;
   background-color: #2994b2;
-  transition: 1.2s; }
+  transition: 1.2s;
+  margin-bottom: 2%; }
 
 .generic-button:hover, .soc-net-login-button:hover {
   background-color: #3cb1d2;
