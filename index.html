@@ -21,8 +21,15 @@
             <!-- As behind, to display english & french lang, elements were duplicated, first the EN, then, the FR -->
             <p v-show="chosen_lang === 'EN' ">{{ message }}</p>
             <p v-show="chosen_lang === 'FR' ">{{ message_fr }}</p>
+            <button class="generic-button" v-show="chosen_lang === 'EN'" @click="doIWantInfos()">{{ info_button }}</button>
+            <button class="generic-button" v-show="chosen_lang === 'FR'" @click="doIWantInfos()">{{ info_button_fr }}</button>
           </section>
-          <section id="magic-window">
+          <section class="magic-window" v-show= "want_infos === true">
+            <h2>Infos</h2>
+            <p v-show="chosen_lang === 'FR' ">{{ infos_text_fr }}</p>
+            <p v-show="chosen_lang === 'EN' ">{{ infos_text }}</p>
+          </section>
+          <section class="magic-window">
             <p class="accented-text" v-show="chosen_lang === 'EN' && chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice }}</p>
             <p class="accented-text" v-show="chosen_lang === 'FR' && chosen_p == '' && chosen_a == '' " >{{ call_to_action_choice_fr }}</p>
             <h2 v-show="chosen_lang === 'EN' ">{{ p_subtitle }}</h2>

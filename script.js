@@ -32,8 +32,11 @@ var app = new Vue({
   },
   data: {
     chosen_lang: "EN",
+    want_infos: false,
     title: 'PronounsAndAccordsMatter',
     message: 'This is a minimalist web application using the Facebook API so you can share a pronoun and an accord with your facebook friends.',
+    info_button: 'Want some infos',
+    infos_text: "Gender is a social construct. Things that people would consider as hints to guess/know someone's gender or the pronom they use like look, body, and such won't make you know ! You don't have to know the exact way someone identifies (their gender) and they don't even have to tell you if they don't want to, but use their pronoun and accord to respect them !",
     call_to_action_choice: 'Choose a pronom/ an accord to start !',
     call_to_action_connect: 'Click on the button below to connect to Facebook and use the app',
     call_to_action_share: 'Just click the button below and share your pronoun(s) and accord(s) with the people you know ;) !',
@@ -67,6 +70,8 @@ var app = new Vue({
 
     // FR lang part //
     message_fr: "Application web minimaliste qui utilise l'API Facebook pour que vous partagiez votre pronom (et l'accord qui va avec) avec vos ami-es Facebook.",
+    info_button_fr: 'Je veux bien quelques infos',
+    infos_text_fr: "Le genre est une construction sociale. Des éléments tels qu'une apparence, un corps ou d'autres détails ne sont pas représentatifs du genre d'une personne ou du pronom que cette personne utilise. Vous n'êtes pas obligé-e de connaître le genre précis de la personne (celle ci n'a pas à vous le dire si elle n'en a pas envie d'ailleurs) mais pour respecter la personne, utilisez son pronom et son accord !",
     call_to_action_choice_fr:'Sélectionne un pronom/accord pour commencer !',
     call_to_action_connect_fr: "Appuie sur le bouton plus bas pour te connecter à Facebook et utiliser l'app",
     call_to_action_share_fr: "Un petit clic sur le bouton en contrebas pour partager ton pronom et ton accord avec tes connaissances ;) !",
@@ -88,6 +93,17 @@ var app = new Vue({
     ]
   },
   methods: {
+
+    //- GENERIC METHODS -//
+
+    // this is taking care of updating want_infos
+    doIWantInfos: function() {
+      let want_infos = app.want_infos === true ? false : true;
+      app.want_infos = want_infos;
+    },
+
+    //- FACEBOOK METHODS -//
+
     // ouvre une fenêtre de login FB pour accorder les permissions nécessaires à l'application
     logMeInWithPermissions: function() {
       FB.login(function(response) {
