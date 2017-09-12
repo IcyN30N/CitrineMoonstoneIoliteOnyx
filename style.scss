@@ -7,19 +7,26 @@ $accent-white: #ecf0f1;
 
 // general styling //
 body {
+  font-size: 1.6em;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url('https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1&auto=format&fit');
   color:$accent-white;
 
+  h1 {
+    font-size: 4vw;
+  }
+
   div {
-    div {
-      section:first-of-type {
-        margin-bottom: 3%;
-        transition:2s;
-      }
-      :nth-of-type(2) {
-        margin-bottom: 2%;
+    section:first-of-type {
+      margin-bottom: 3%;
+      transition:2s;
+    }
+    :nth-of-type(2) {
+      margin-bottom: 2%;
+
+      p {
+        padding: .3% 2% 0% 2%;
       }
     }
   }
@@ -44,6 +51,16 @@ body {
       margin-bottom: 1.5%;
     }
   }
+
+  // media queries //
+
+  @media screen and (min-width: 0px) and (max-width: 700px) {
+    h1 {
+    font-size: 7vw;
+    }
+  }
+
+  // END (media queries)
 }
 
 
@@ -105,5 +122,16 @@ body {
 
 // END (buttons) //
 
+// transitions //
+
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+// END (transitions) //
 
 // END (classes) //
