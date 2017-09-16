@@ -8,9 +8,25 @@ $accent-white: #ecf0f1;
 // general styling //
 body {
   font-size: 1.6em;
-  background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1&auto=format&fit');
+  // background-image: url('https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1&auto=format&fit');
+  background-image: url('https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1.25&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop');
+  background-attachment:fixed;
+
+
+  // to manage 4K
+  @media screen and (min-width: 1860px) {
+    background-position: center;
+    background-image: url('https://images.unsplash.com/photo-1474921751718-0692526ddaeb?dpr=1.25&auto=format&fit');
+  }
+
+  // using another picture when viewed on small devices
+  @media screen and (min-width: 0px) and (max-width: 1023px) {
+    background-position: center;
+    background-image: url('https://images.unsplash.com/photo-1470267826516-96fa10965c57?dpr=1.25&auto=format&fit=crop&w=1500&h=2247&q=80&cs=tinysrgb&crop=');
+  }
+
+
   color:$accent-white;
 
   h1 {
@@ -52,13 +68,50 @@ body {
     }
   }
 
-  // media queries //
+  // generic media queries //
 
-  @media screen and (min-width: 0px) and (max-width: 700px) {
-    h1 {
-    font-size: 7vw;
-    }
+  // manage texts size
+
+    @media screen and (min-width: 0px) and (max-width: 700px) {
+      h1 {
+      font-size: 7vw;
+      }
   }
+
+    @media screen and (min-width: 1500px) {
+      p {
+        font-size: 1.7em;
+      }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 960px) {
+      button {
+        font-size: 1.3em;
+      }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1500px) {
+      button {
+        font-size: 1.5em;
+      }
+    }
+
+    @media screen and (min-width: 1600px) {
+      button {
+        font-size: 1.9em;
+      }
+    }
+
+    // manage elements sizes
+
+    @media screen and (min-width: 1500px) {
+      select {
+        font-size: 2em;
+        option {
+          font-size: 0.5em;
+        }
+      }
+    }
 
   // END (media queries)
 }
@@ -75,6 +128,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   padding-top: 2%;
   padding-bottom: 3%;
+
 }
 
 // texts //
@@ -84,6 +138,10 @@ body {
   font-weight: bold;
   padding-top: 1.5%;
   padding-bottom: 0.5%;
+
+  @media screen and (min-width: 1500px) {
+    font-size: 3.5em;
+  }
 }
 
 .accented-text-variant {
