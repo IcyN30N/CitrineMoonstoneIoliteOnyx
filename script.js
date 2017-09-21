@@ -2,6 +2,10 @@ var app = new Vue({
   el: '#app',
   created: function() {
     console.log('created main !');
+    windowSize = window.innerWidth;
+    this.author_name = windowSize > 1024 ? "Aaron Mello" : "Joe deSousa";
+    this.author_picture_link = windowSize > 1024 ? "https://unsplash.com/photos/BdlDv9YychU" : "https://unsplash.com/photos/arKdO5cxaCk"
+
 
     window.fbAsyncInit = function() {
       FB.init({
@@ -67,6 +71,11 @@ var app = new Vue({
     chosen_p: '',
     chosen_a: '',
     soc_net_feedback: '',
+    author_name: '',
+    author_picture_link: '',
+    footer_code:'Coded by ',
+    footer_pic:'Pictures by ',
+    footer_more:'More Infos',
 
     // FR lang part //
     message_fr: "Application web minimaliste qui utilise l'API Facebook pour que vous partagiez votre pronom (et l'accord qui va avec) avec vos ami-es Facebook.",
@@ -90,7 +99,10 @@ var app = new Vue({
       'ae',
       'aelle',
       'al'
-    ]
+    ],
+    footer_code_fr:'Codé par ',
+    footer_pic_fr:'Photos par ',
+    footer_more_fr:'Ressources'
   },
   methods: {
 
