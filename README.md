@@ -1,6 +1,12 @@
 # CitrineMoonstoneIoliteOnyx
 
-## PronounsAndAccordsMatter
+## PronounsAndAccordsMatter - Not working anymore because 
+
+### Status
+
+#### EN : currently not linked to Facebook API (so the app can't work).
+
+#### FR : l'applicaton n'étant plus liée à l'API Facebook, elle ne fonctionne plus.
 
 ### Where - Où
 
@@ -36,14 +42,7 @@ Faisant partie de la communauté MOGAI/LGBTQ+, l'idée m'est venue, un jour, com
 ### To-Do - A faire
 
 #### EN :us: :
-[x] Add transitions
-[x] Making a footer
-[x] pick a font
-[x] Make some color palette changes - optionnal
-
+[ ] Re link the app with Facebook API
 
 #### FR :fr: :
-[x] Ajouter les transitions
-[x] Réaliser un footer
-[x] Choisir une police
-[x] Modifier la palette de couleurs - optionnel
+[ ] Refaire le lien entre l'app et l'API Facebook
