@@ -19,7 +19,7 @@
 
 ### Purpose - But
 
-#### EN :us: :
+#### EN (:us:) :
 This project uses VueJS (2.0) and is hosted on Github pages :octocat:, it's a simple single page web application that will let you post a status on Facebook (API consumption here) with the pronoun and accord you want people to use when speaking about you. If you're genderfluid, you won't have to write a status by yourself everytime something changes.
 
 #### FR :fr: :
