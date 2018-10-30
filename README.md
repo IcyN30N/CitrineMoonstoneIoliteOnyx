@@ -6,7 +6,7 @@
 
 #### EN : currently not linked to Facebook API (so the app can't work).
 
-#### FR : l'applicaton n'étant plus liée à l'API Facebook, elle ne fonctionne plus.
+#### FR : l'application n'étant plus liée à l'API Facebook, elle ne fonctionne plus.
 
 ### Where - Où
 
